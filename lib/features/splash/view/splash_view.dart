@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sharqia_app/core/constants/app_colors.dart';
 import 'package:sharqia_app/core/constants/app_images.dart';
+import 'package:sharqia_app/core/utils/CustomNavigator.dart';
 import 'package:sharqia_app/features/auth/view/sign_in_view.dart';
 
 import '../../../core/utils/custom_button.dart';
@@ -21,12 +22,7 @@ class SplashView extends StatelessWidget {
           Image.asset(AppImages.splash),
           CustomButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SignInView(),
-                ),
-              );
+              CustomNavigator.pushAndRemoveUtil(context, const SignInView());
             },
             text: 'Login',
           ),

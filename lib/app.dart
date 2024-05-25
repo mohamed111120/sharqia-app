@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'features/home/veiw_model/home_cubit.dart';
 import 'features/splash/view/splash_view.dart';
 
 class SharqiaApp extends StatelessWidget {
@@ -8,11 +9,15 @@ class SharqiaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner:  false,
+        theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white
+        ),
+        home: SplashView(),
       ),
-      home: SplashView() ,
     );
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sharqia_app/core/utils/custom_button.dart';
 import 'package:sharqia_app/core/utils/custom_text_form_field.dart';
-import 'package:sharqia_app/features/auth/view/widgets/success_sign_view.dart';
+import 'package:sharqia_app/features/auth/view/success_sign_view.dart';
 
 import '../../../core/constants/app_colors.dart';
+import '../../../core/utils/text_styles.dart';
 import 'widgets/sign_up_form_section.dart';
 
 class SignUpView extends StatelessWidget {
@@ -17,46 +18,54 @@ class SignUpView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Text(
                 'Welcome',
-                style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w600),
+                style: AppStyles.style28.copyWith(fontWeight: FontWeight.w600),
               ),
               Text(
                 'Sign up for the Chunky app',
-                style: TextStyle(
-                  color: AppColors.primary,
-                  fontSize: 22,
-                ),
+                style: AppStyles.style22.copyWith(fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-             SignUpFormSection(),
+              const SignUpFormSection(),
               Row(
                 children: [
                   Checkbox(
-                    fillColor:WidgetStateProperty.all(AppColors.primary) ,
+                    fillColor: WidgetStateProperty.all(AppColors.primary),
                     value: true,
                     onChanged: (value) {},
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Text(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       'By clicking on ‘sign up’, you’re agreeing to the Chunky app Terms of Service and Privacy Policy',
-                    style: TextStyle(color: AppColors.primary),
+                      style: TextStyle(color: AppColors.primary),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
-              CustomButton(text: 'Sign Up',onPressed: () {
-                Navigator.push(context,  MaterialPageRoute(builder: (context) => SuccessSignView(),));
-              },)
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButton(
+                text: 'Sign Up',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SuccessSignView(),
+                      ));
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
@@ -64,4 +73,3 @@ class SignUpView extends StatelessWidget {
     );
   }
 }
-

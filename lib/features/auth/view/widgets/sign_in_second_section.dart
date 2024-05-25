@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sharqia_app/core/utils/CustomNavigator.dart';
+import 'package:sharqia_app/core/utils/text_styles.dart';
 import 'package:sharqia_app/features/auth/view/sign_up_view.dart';
 
 import '../../../../core/constants/app_colors.dart';
@@ -11,30 +13,26 @@ class SignInSecondSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Column(
       children: [
-        const Text(
+         Text(
           textAlign: TextAlign.center,
           'if you forget your password',
-          style: TextStyle(
-            color: AppColors.primary,
-            fontSize: 21,
-            fontWeight: FontWeight.w600,
-          ),
+          style: AppStyles.style22.copyWith(
+            fontWeight: FontWeight.w600
+          )
         ),
         const CustomButton(text: 'Forget Password'),
         const SizedBox(
           height: 40,
         ),
-        const Text(
+         Text(
           textAlign: TextAlign.center,
           'if you don’t an account you can',
-          style: TextStyle(
-            color: AppColors.primary,
-            fontSize: 21,
-            fontWeight: FontWeight.w600,
-          ),
+          style:AppStyles.style22.copyWith(
+              fontWeight: FontWeight.w600
+          )
         ),
         CustomButton(text: ' Register here!',onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpView(),));
+        CustomNavigator.push(context, SignUpView());
         },),
       ],
     );

@@ -1,50 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:sharqia_app/core/utils/text_styles.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/custom_button.dart';
 import '../../../../core/utils/custom_text_form_field.dart';
 
-class SignInFristSection extends StatelessWidget {
-  const SignInFristSection({super.key});
+class SignInFirstSection extends StatelessWidget {
+  const SignInFirstSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
               'Engish',
-              style: TextStyle(color: AppColors.primary, fontSize: 17),
+              style: AppStyles.style18,
             ),
+            Icon(Icons.arrow_drop_down_outlined,color: AppColors.primary,),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 80,
         ),
         Text(
           'Sign In to recharge Direct',
-          style: TextStyle(
-              color: AppColors.primary,
-              fontSize: 28,
-              fontWeight: FontWeight.w600),
+          style: AppStyles.style28.copyWith(fontWeight: FontWeight.w600),
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
-        CustomTextFormField(hintText: 'Email/phone number ',),
-        SizedBox(
+        const CustomTextFormField(
+          hintText: 'Email/phone number ',
+        ),
+        const SizedBox(
           height: 15,
         ),
-        CustomTextFormField(hintText: 'Password',),
-        SizedBox(
+        const CustomTextFormField(
+          hintText: 'Password',
+        ),
+        const SizedBox(
           height: 25,
         ),
-        CustomButton(text: 'Sign IN'),
+        const CustomButton(text: 'Sign IN'),
       ],
     );
   }

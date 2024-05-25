@@ -16,7 +16,7 @@ class SignInView extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
-          SignInFristSection(),
+          SignInFirstSection(),
           SizedBox(height: 50,),
           SignInSecondSection(),
         ],
