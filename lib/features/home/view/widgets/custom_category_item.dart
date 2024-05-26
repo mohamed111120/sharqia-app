@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/text_styles.dart';
 
 class CustomCategoryItem extends StatelessWidget {
-  const CustomCategoryItem({super.key,  required this.name, required this.image, this.onTap});
+  const CustomCategoryItem(
+      {super.key,
+      this.name,
+      required this.image,
+      this.onTap, this.height,
+      });
 
-  final String name;
+  final String? name;
   final String image;
   final void Function()? onTap;
+  final double? height;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -24,20 +31,33 @@ class CustomCategoryItem extends StatelessWidget {
           child: Column(
             children: [
               ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-                child: Image.asset(
-                  image,
+                borderRadius:  BorderRadius.only(
+                  topLeft: const Radius.circular(30),
+                  topRight: const Radius.circular(30),
+                  bottomLeft: name == null ? const Radius.circular(30) :const Radius.circular(0),
+                  bottomRight:  name == null ? const Radius.circular(30) :const Radius.circular(0),
+
+                ),
+                child: AspectRatio(
+                  aspectRatio:  name ==null ? .677: 1.5,
+                  child: Image.asset(
+                    image,
+                    height: height,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  name,
-                  style: AppStyles.style18.copyWith(fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-              )
+              name != null
+                  ? Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        name!,
+                        style: AppStyles.style18
+                            .copyWith(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  : const SizedBox.shrink()
             ],
           ),
         ),

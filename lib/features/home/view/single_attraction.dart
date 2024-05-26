@@ -3,6 +3,9 @@ import 'package:sharqia_app/core/utils/text_styles.dart';
 import 'package:sharqia_app/features/home/model/category_model.dart';
 import 'package:sharqia_app/features/home/view/widgets/custom_categoris_app_bar.dart';
 
+import '../../../core/utils/CustomNavigator.dart';
+import 'widgets/image_view_three_d_icon_list.dart';
+
 class SingleAttraction extends StatelessWidget {
   const SingleAttraction({
     super.key,
@@ -21,7 +24,7 @@ class SingleAttraction extends StatelessWidget {
             children: [
               const CustomCategoriesAppBar(),
               Text(
-                attractionsModel.name,
+                attractionsModel.name ??'',
                 style: AppStyles.style22.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -32,13 +35,26 @@ class SingleAttraction extends StatelessWidget {
                 child: Image.asset(
                   attractionsModel.image,
                   height: 500,
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               Text(
                 attractionsModel.details ?? '',
-                style: TextStyle(fontSize: 18),
-              )
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text('3D Images',style: AppStyles.style22.copyWith(fontWeight: FontWeight.bold),),
+                  ],
+                ),
+              ImageView3dIconList(
+                attractionsModel: attractionsModel,
+              ),
             ],
           ),
         ),
@@ -46,3 +62,4 @@ class SingleAttraction extends StatelessWidget {
     );
   }
 }
+

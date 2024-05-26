@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sharqia_app/core/constants/app_images.dart';
 import 'package:sharqia_app/core/utils/text_styles.dart';
-import 'package:sharqia_app/features/home/model/category_model.dart';
-import 'package:sharqia_app/features/home/veiw_model/home_cubit.dart';
-import 'package:sharqia_app/features/home/view/single_category.dart';
 import 'package:sharqia_app/features/home/view/widgets/custom_app_bar.dart';
-import 'package:sharqia_app/features/home/view/widgets/custom_category_item.dart';
+import 'package:sharqia_app/features/home/view/widgets/custom_category_hotel_item.dart';
 import 'package:sharqia_app/features/home/view/widgets/home_grid_view.dart';
 
-import '../../../core/utils/CustomNavigator.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -31,7 +27,15 @@ class HomeView extends StatelessWidget {
                 style: AppStyles.style22.copyWith(
                     color: Colors.black, fontWeight: FontWeight.bold)),
             const SizedBox(height: 20),
-            const HomeGridView()
+            const HomeGridView(),
+            const SizedBox(height: 10),
+            const AspectRatio(
+              aspectRatio:  2,
+              child:  CustomCategoryHotelItem(
+                image: AppImages.heartAttack2,
+                name: 'Hotels',
+              ),
+            ),
           ],
         ),
       ),

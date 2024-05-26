@@ -16,7 +16,7 @@ class SharqiaApp extends StatelessWidget {
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.white
         ),
-        home: SplashView(),
+        home: const SplashView(),
       ),
     );
   }

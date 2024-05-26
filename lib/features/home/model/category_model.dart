@@ -23,15 +23,15 @@ class TouristPlaceModel {
 }
 
 class AttractionsModel {
-  final String name;
+  final String? name;
   final String image;
   final String? details;
-  final String? image3d;
+  final List<String>? images3d;
 
   AttractionsModel({
     required this.image,
-    required this.name,
+     this.name,
     this.details,
-    this.image3d,
+    this.images3d,
   });
 }

@@ -19,7 +19,7 @@ class HomeGridView extends StatelessWidget {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: .8),
+          childAspectRatio: .88),
       itemBuilder: (context, index) {
         return CustomCategoryItem(
           onTap: () {
@@ -31,6 +31,7 @@ class HomeGridView extends StatelessWidget {
                 ));
           },
           image: HomeCubit.get(context).categories[index].image,
+          // height: 150,
           name: HomeCubit.get(context).categories[index].name,
         );
       },

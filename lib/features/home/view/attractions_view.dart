@@ -17,6 +17,8 @@ class AttractionsView extends StatelessWidget {
   final List<AttractionsModel> attractions;
   final String placeName;
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,15 +40,16 @@ class AttractionsView extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: attractions.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: .48,
+                    childAspectRatio: attractions.first.name ==null ? .677: .8,
                 ),
                 itemBuilder: (context, index) {
+                  print(attractions[index].name);
                   return CustomCategoryItem(
-                    name: attractions[index].name,
+                    name: attractions[index].name ,
                     image: attractions[index].image,
                     onTap: () {
                       CustomNavigator.push(
